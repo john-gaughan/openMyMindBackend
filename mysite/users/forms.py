@@ -7,3 +7,7 @@ class SignUpForm(forms.Form):
     email = forms.EmailField('Email', max_length=100)
     password = forms.CharField('Password', max_length=100, widget=forms.PasswordInput)
     confirm_pass = forms.CharField('Confirm Password', max_length=100, widget=forms.PasswordInput)
+
+class LoginForm(forms.Form):
+    username = forms.CharField('Username', max_length=100)
+    password = forms.CharField('Password', max_length=100, widget=forms.PasswordInput)
