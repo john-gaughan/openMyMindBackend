@@ -1,14 +1,9 @@
-from .forms import SignUpForm
+from django.urls import path
 
-def signMeUp(request):
-    if request.method == "POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return #redirect to login
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = SignUpForm()
-    return #redirect back to sign up form
+from . import views
+
+urlpatterns = [
+    # path('', views.index, name = 'index'),
+    path('signup', views.signMeUp, name = 'signMeUp'),
+    path('login', views.logMeIn, name = 'logMeIn'),
+]
