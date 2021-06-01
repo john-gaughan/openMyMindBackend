@@ -38,9 +38,9 @@ def logMeIn(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            # Redirect to a success page.
+            return JsonResponse({"username": username})
         else:
             # Return an 'invalid login' error message.
-            return None
+            return JsonResponse({"message" : "invalid login"})
     # if a GET (or any other method) we'll create a blank form
     return HttpResponse("You are at the login page.")
